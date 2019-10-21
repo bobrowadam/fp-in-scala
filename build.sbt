@@ -1,12 +1,15 @@
 import Dependencies._
 
-ThisBuild / scalaVersion     := "2.13.1"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
-ThisBuild / organization     := "com.bob"
-ThisBuild / organizationName := "bob"
-
 lazy val root = (project in file("."))
   .settings(
     name := "fp-in-scala",
-    libraryDependencies += scalaTest % Test
+    organization := "bob",
+    version := "0.0.1",
+    scalaVersion := "2.12.9",
+    maxErrors := 3,      
   )
+
+libraryDependencies += "org.scalactic" %% "scalactic" % "3.0.8"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % "test"
+
+addCommandAlias("fmt", "all scalafmtSbt scalafmt test:scalafmt")
